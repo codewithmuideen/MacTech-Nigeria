@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --transition: all 0.3s linear;
+}
+
+body {
+  background-color: #f5f8fa;
+  font-family: Montserrat;
+}
+
+.app__bg {
+  position: relative;
+  height: 100vh; /* Make the container take the full viewport height */
+  background-image: url("./assets/background25.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.section__bg {
+  position: relative;
+  height: 100vh; /* Make the container take the full viewport height */
+  background-image: url("./assets/pexels-lukas-669612.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.link {
+  transition: color 0.1s ease-out, border-bottom 0.1s ease-in;
+}
+
+.link:hover {
+  border-bottom: 3px solid hsl(211, 53%, 56%);
+  color: hsl(211, 53%, 56%);
+}
+
+.section {
+  width: 94%;
+  margin: 0 auto;
+  /* border: 2px solid green; */
+}
+
+@media screen and (min-width: 1400px) {
+  .section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .app__bg {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app__bg {
+    height: 85vh;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .section {
+    width: 95%;
+  }
+}
+
+.text-focus-in {
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s
+    both;
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+/* slider css start */
+article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 98vw;
+  height: 100%;
+  opacity: 0;
+  transition: var(--transition);
+}
+article.activeSlide {
+  opacity: 1;
+  transform: translateX(0);
+}
+article.lastSlide {
+  transform: translateX(-100%);
+}
+article.nextSlide {
+  transform: translateX(100%);
+}
+
+.section-center {
+  margin: 0 auto;
+  width: 100vw;
+  /* have to have a height */
+  height: 325px;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+/* slider css end */
+
+/* footer list color */
+.marker::marker {
+  color: hsl(211, 53%, 56%);
+}
